@@ -101,7 +101,7 @@ void updateRT(Node* n, RtPkt* rcvdpkt) {
 
 	if(changes==true){
 		for(i=0;i<NUMNODES;i++){
-			if(n->rt.nexthop[i]==i){
+			if(n->rt.nexthop[i]==i &&n->id!=i){
 				packet->destid=i;
 				tolayer2(*packet);
 				msg_sent+=1;
